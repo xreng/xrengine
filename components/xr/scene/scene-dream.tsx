@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import SceneContainer from './scene-container'
 import { Entity } from 'aframe-react'
 import Assets from './assets'
-import Environment from './environment'
+import { Environment } from './environment'
 import Player from '../player/player'
 import './style.scss'
 import SvgVr from '../../icons/svg/Vr'
@@ -57,7 +57,7 @@ const DreamScene = (props: DreamProps): any => {
                 cellWidth={1}
                 cellContentHeight={0.5}
                 mediatype="scene"
-              ></Entity>
+              />
             )
           })}
         </Entity>

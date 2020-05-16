@@ -1,94 +1,89 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Router from 'next/router'
 import './VideoControls.scss'
+import PropTypes from 'prop-types'
 
 type Props = {
   videosrc: string,
   videotext: string,
   videovrui: string
 }
-type State = {
-  playing: boolean,
-  end: boolean
+
+const initialState = {
+  playing: false,
+  end: false
 }
 
-export default class Video360Room extends React.Component<Props, State> {
-  state: State = {
-    playing: false,
-    end: false
+export const Video360Room = (props) => {
+  const [state, setState] = useState(initialState)
+  const { videosrc, videotext, videovrui } = props
+
+  let videoEl: HTMLElement | null = null
+  let videovruiEl: HTMLElement | null = null
+  let textEl: HTMLElement | null = null
+
+  useEffect(() => {
+    videoEl = document.querySelector(videosrc) as HTMLElement
+    videoEl?.addEventListener('play', videoPlayHandler.bind(this))
+    videoEl?.addEventListener('pause', videoPauseHandler.bind(this))
+    textEl = document.querySelector(videotext) as HTMLElement
+    videovruiEl = document.querySelector(videovrui) as HTMLElement
+    videovruiEl?.addEventListener('triggerplay', playHandler.bind(this))
+    videovruiEl?.addEventListener('triggerpause', pauseHandler.bind(this))
+    videovruiEl?.addEventListener('triggerback', exitVideoHandler.bind(this))
+  })
+
+  const clickHandler = (e: any) => {
+    e.preventDefault()
+    if (state.end) exitVideoHandler()
+    else if (!state.playing) playHandler()
   }
 
-  videoEl: HTMLElement | null = null
-  videovruiEl: HTMLElement | null = null
-  textEl: HTMLElement | null = null
-
-  componentDidMount() {
-    this.videoEl = document.querySelector(this.props.videosrc) as HTMLElement
-    this.videoEl?.addEventListener('play', this.videoPlayHandler.bind(this))
-    this.videoEl?.addEventListener('pause', this.videoPauseHandler.bind(this))
-    this.textEl = document.querySelector(this.props.videotext) as HTMLElement
-    this.videovruiEl = document.querySelector(this.props.videovrui) as HTMLElement
-    this.videovruiEl?.addEventListener('triggerplay', this.playHandler.bind(this))
-    this.videovruiEl?.addEventListener('triggerpause', this.pauseHandler.bind(this))
-    this.videovruiEl?.addEventListener('triggerback', this.exitVideoHandler.bind(this))
-  }
-
-  render() {
-    return (
-      <div onClick={ this.clickHandler.bind(this) }
-        id="videoplayercontrols"
-        className="videoplayercontrols active">
-      </div>
-    )
-  }
-
-  private clickHandler() {
-    if (this.state.end) {
-      this.exitVideoHandler()
-    } else if (!this.state.playing) {
-      this.playHandler()
-    }
-  }
-
-  private playHandler() {
-    (this.videoEl as HTMLVideoElement)?.play()
+  const playHandler = () => {
+    (videoEl as HTMLVideoElement)?.play()
     const controller = document.querySelector('#videoplayercontrols')
     controller.classList.remove('active')
     controller.classList.add('disabled')
 
-    this.textEl?.setAttribute('visible', false)
-    this.videoEl?.addEventListener('ended', this.videoEndHandler.bind(this), { once: true })
-    this.setState({ playing: true })
+    textEl?.setAttribute('visible', false)
+    videoEl?.addEventListener('ended', videoEndHandler.bind(this), { once: true })
+    setState({ ...state, playing: true })
   }
 
-  pauseHandler() {
-    (this.videoEl as HTMLVideoElement)?.pause()
-  }
+  const pauseHandler = () => (videoEl as HTMLVideoElement)?.pause()
 
-  private videoEndHandler() {
-    (this.videoEl as HTMLVideoElement)?.pause()
+  const videoEndHandler = () => {
+    (videoEl as HTMLVideoElement)?.pause()
     const controller = document.querySelector('#videoplayercontrols')
-    this.textEl?.addEventListener('click', this.exitVideoHandler)
+    textEl?.addEventListener('click', exitVideoHandler)
     controller.classList.remove('disabled')
     controller.classList.add('active')
-    this.textEl?.setAttribute('text', { value: 'END\n\nclick to exit' })
-    this.textEl?.setAttribute('visible', true)
-    this.setState({ playing: false, end: true })
+    textEl?.setAttribute('text', { value: 'END\n\nclick to exit' })
+    textEl?.setAttribute('visible', true)
+    setState({ playing: false, end: true })
   }
 
-  private videoPlayHandler() {
-    this.videovruiEl?.setAttribute('video-player-vr-ui', {
+  const videoPlayHandler = () =>
+    videovruiEl?.setAttribute('video-player-vr-ui', {
       isPlaying: true
     })
-  }
 
-  private videoPauseHandler() {
-    this.videovruiEl?.setAttribute('video-player-vr-ui', {
+  const videoPauseHandler = () =>
+    videovruiEl?.setAttribute('video-player-vr-ui', {
       isPlaying: false
     })
-  }
 
-  private exitVideoHandler() {
-    Router.push('/explore')
-  }
+  const exitVideoHandler = () => Router.push('/explore')
+
+  return (
+    <div onClick={ (e) => clickHandler(e) }
+      id="videoplayercontrols"
+      className="videoplayercontrols active" />
+  )
+}
+
+Video360Room.propTypes = {
+  videosrc: PropTypes.string.isRequired,
+  videotext: PropTypes.string.isRequired,
+  videovrui: PropTypes.any.isRequired
 }

@@ -7,15 +7,13 @@ const SceneRoot = dynamic(() => import('../components/xr/scene'), {
   ssr: false
 })
 
-export default class PortalTestPage extends React.Component {
-  render() {
-    return (
-      <Layout pageTitle="Portal test">
-        <SceneRoot>
-          <PortalCursor />
-          <Portal href="/portals" position={{ x: 0, y: 1, z: -3 }} />
-        </SceneRoot>
-      </Layout>
-    )
-  }
+export const PortalTestPage = () => {
+  return (
+    <Layout pageTitle="Portal test">
+      <SceneRoot>
+        <PortalCursor />
+        <Portal href="/portals" position={{ x: 0, y: 1, z: -3 }} />
+      </SceneRoot>
+    </Layout>
+  )
 }

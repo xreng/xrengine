@@ -2,47 +2,47 @@
 import App, { AppProps } from 'next/app'
 import Head from 'next/head'
 // eslint-disable-next-line
-import React, { ComponentType } from 'react'
+import React, { ComponentType, useEffect, useState } from 'react'
 import withRedux from 'next-redux-wrapper'
 import { Provider } from 'react-redux'
 
 import { fromJS } from 'immutable'
 import { configureStore } from '../redux/store'
-// eslint-disable-next-line
 import { Store } from 'redux'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from '../components/assets/theme'
 import { restoreState } from '../redux/persisted.store'
 import { doLoginAuto } from '../redux/auth/service'
+import PropTypes from 'prop-types'
 
 import getConfig from 'next/config'
 
 const config = getConfig().publicRuntimeConfig
-// requires aframe only once and renders the page, passing 'aframeReady' boolean
 type PageLoaderProps = {
   Component: ComponentType
   pageProps: any
 }
 
-class PageLoader extends React.Component<PageLoaderProps> {
-  state = {
-    aframeReady: false
-  }
+export const PageLoader = ({
+  Component,
+  pageProps
+}: PropTypes.InferProps<typeof PageLoader.propTypes>) => {
+  const [state, setState] = useState({ aframeReady: false })
 
-  componentDidMount() {
-    // load aframe only once
-    // each page will no longer need to require aframe
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       require('aframe')
-      this.setState({ aframeReady: true })
+      setState({ aframeReady: true })
     }
-  }
+  })
 
-  render() {
-    const { Component, pageProps } = this.props
-    return <Component {...pageProps} aframeReady={this.state.aframeReady} />
-  }
+  return <Component {...pageProps} aframeReady={state.aframeReady} />
+}
+
+PageLoader.propTypes = {
+  Component: PropTypes.node.isRequired,
+  pageProps: PropTypes.any.isRequired
 }
 
 interface Props extends AppProps {

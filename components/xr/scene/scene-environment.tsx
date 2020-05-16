@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import SceneContainer from './scene-container'
 import Assets from './assets'
-import Environment from './environment'
+import { Environment } from './environment'
 import Player from '../player/player'
 import './style.scss'
 
@@ -10,30 +10,26 @@ type State = {
   color?: string
 }
 
-export default class EnvironmentScene extends React.Component<State> {
-  state: State = {
-    appRendered: false,
-    color: 'red'
-  }
+export const EnvironmentScene = () => {
+  const [state, setState] = useState({ appRendered: false })
 
-  componentDidMount() {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       require('aframe')
-      this.setState({ appRendered: true })
+      require('networked-aframe')
+      setState({ appRendered: true })
     }
-  }
+  })
 
-  render() {
-    return (
-      <div style={{ height: '100%', width: '100%' }}>
-        {this.state.appRendered && (
-          <SceneContainer>
-            <Assets/>
-            <Environment/>
-            <Player/>
-          </SceneContainer>
-        )}
-      </div>
-    )
-  }
+  return (
+    <div style={{ height: '100%', width: '100%' }}>
+      {state.appRendered && (
+        <SceneContainer>
+          <Assets />
+          <Environment />
+          <Player />
+        </SceneContainer>
+      )}
+    </div>
+  )
 }

@@ -6,18 +6,12 @@ type Props = {
   children: any
 }
 
-class EmptyLayout extends React.Component<Props> {
-  render() {
-    return (
-      <React.Fragment>
-        <XDialog/>
-
-        <Alerts/>
-
-        {this.props.children}
-      </React.Fragment>
-    )
-  }
-}
+const EmptyLayout = ({ children }: Props) => (
+  <React.Fragment>
+    <XDialog />
+    <Alerts />
+    {children}
+  </React.Fragment>
+)
 
 export default EmptyLayout

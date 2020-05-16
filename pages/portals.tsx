@@ -7,24 +7,22 @@ const SceneRoot = dynamic(() => import('../components/xr/scene'), {
   ssr: false
 })
 
-export default class PortalsPage extends React.Component {
-  render() {
-    return (
-      <Layout pageTitle="Portals">
-        <SceneRoot>
-          <PortalCursor />
-          <Portal href="/" position={{ x: -6, y: 1, z: -5 }} />
-          <Portal href="/portaltest" position={{ x: -2, y: 1, z: -6 }} />
-          <Portal
-            href="https://vrland.io/dome/in"
-            position={{ x: 2, y: 1, z: -6 }}
-          />
-          <Portal
-            href="https://hubs.mozilla.com/eyUQKmn/welcome-ultimate-festivity"
-            position={{ x: 6, y: 1, z: -4 }}
-          />
-        </SceneRoot>
-      </Layout>
-    )
-  }
+export const PortalsPage = () => {
+  return (
+    <Layout pageTitle="Portals">
+      <SceneRoot>
+        <PortalCursor />
+        <Portal href="/" position={{ x: -6, y: 1, z: -5 }} />
+        <Portal href="/portaltest" position={{ x: -2, y: 1, z: -6 }} />
+        <Portal
+          href="https://vrland.io/dome/in"
+          position={{ x: 2, y: 1, z: -6 }}
+        />
+        <Portal
+          href="https://hubs.mozilla.com/eyUQKmn/welcome-ultimate-festivity"
+          position={{ x: 6, y: 1, z: -4 }}
+        />
+      </SceneRoot>
+    </Layout>
+  )
 }

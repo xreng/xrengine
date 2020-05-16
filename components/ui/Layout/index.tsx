@@ -1,5 +1,5 @@
 import getConfig from 'next/config'
-import * as React from 'react'
+import React from 'react'
 import NavMenu from '../NavMenu'
 import Footer from '../Footer'
 import Head from 'next/head'
@@ -16,28 +16,27 @@ type Props = {
   children: any
 }
 
-class Layout extends React.Component<Props> {
-  render() {
-    return (
-      <section>
-        <Head>
-          <title>
-            {siteTitle} | {this.props.pageTitle}
-          </title>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
-        </Head>
-        <header>
-          <NavMenu />
-        </header>
-        <React.Fragment>
-          <XDialog/>
-          <Alerts/>
-          {this.props.children}
-        </React.Fragment>
-        <Footer />
-      </section>
-    )
-  }
+const Layout = (props: Props) => {
+  const { pageTitle, children } = props
+  return (
+    <section>
+      <Head>
+        <title>
+          {siteTitle} | {pageTitle}
+        </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js" />
+      </Head>
+      <header>
+        <NavMenu />
+      </header>
+      <React.Fragment>
+        <XDialog />
+        <Alerts />
+        {children}
+      </React.Fragment>
+      <Footer />
+    </section>
+  )
 }
 
 export default Layout

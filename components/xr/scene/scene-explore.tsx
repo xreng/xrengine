@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import SceneContainer from './scene-container'
 import { Entity } from 'aframe-react'
 import Assets from './assets'
-import Environment from './environment'
+import { Environment } from './environment'
 import Player from '../player/player'
 import './style.scss'
 import SvgVr from '../../icons/svg/Vr'
@@ -140,7 +140,7 @@ const ExploreScene = (props: VideoProps): any => {
                 events={{
                   click: focusCell
                 }}
-              ></Entity>
+              />
             )
           })}
         </Entity>
@@ -161,8 +161,7 @@ const ExploreScene = (props: VideoProps): any => {
               rating={exploreState.focusedCell?.rating}
               categories={exploreState.focusedCell?.categories}
               runtime={exploreState.focusedCell?.runtime}
-              class="clickable">
-            </Entity>
+              class="clickable" />
           </Entity>
         }
       </Entity>

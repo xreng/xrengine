@@ -96,12 +96,12 @@
     "featherStoreKey": "XRChat-Auth-Store",
     "localStorageKey": "xrchat-client-store-key-v1",
     "auth": {
-      "isEnableSmsMagicLink": true,
-      "isEnableEmailMagicLink": true,
-      "isEnableUserPassword": true,
-      "isEnableGithub": true,
-      "isEnableFacebook": true,
-      "isEnableGoogle": true
+      "enableSmsMagicLink": true,
+      "enableEmailMagicLink": true,
+      "enableUserPassword": true,
+      "isEnabledGithub": true,
+      "isEnabledFacebook": true,
+      "isEnabledGoogle": true
     },
 
     "alert": {

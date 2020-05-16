@@ -1,6 +1,7 @@
-import React from 'react'
+import { useEffect } from 'react'
 import shaka from 'shaka-player'
 import AFRAME from 'aframe'
+import PropTypes from 'prop-types'
 
 const initApp = (manifestUri: string) => {
   shaka.polyfill.installAll()
@@ -23,9 +24,8 @@ const initPlayer = (manifestUri: string) => {
 }
 
 const loadedDataVideoHandler = () => {
-  if (AFRAME.utils.device.isIOS()) {
-    // fix Safari iPhone bug with black screen
-    forceIOSCanvasRepaint()
+  if (AFRAME.utils.device.isIOS()) { // TODO: Replace with redux store device ref
+    forceIOSCanvasRepaint() // fix Safari iPhone bug with black screen
   }
 }
 
@@ -41,26 +41,16 @@ const forceIOSCanvasRepaint = () => {
   canvasEl.height = height
 }
 
-export default class ShakaPlayer extends React.Component {
-  props: shakaPropTypes
+export const ShakaPlayer = (props) => {
+  const { manifestUri } = props
 
-  constructor(props: shakaPropTypes) {
-    super(props)
-
-    this.props = props
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     const sceneEl = document.querySelector('a-scene')
-    if (sceneEl?.hasLoaded) initApp(this.props.manifestUri)
-    else sceneEl?.addEventListener('loaded', initApp.bind(this, this.props.manifestUri))
-  }
+    if (sceneEl?.hasLoaded) initApp(manifestUri)
+    else sceneEl?.addEventListener('loaded', initApp.bind(this, props.manifestUri))
+  })
 
-  render() {
-    return ''
-  }
+  return null
 }
 
-export interface shakaPropTypes extends React.Props<any> {
-  manifestUri: string,
-}
+ShakaPlayer.propTypes = { manifestUri: PropTypes.string.isRequired }

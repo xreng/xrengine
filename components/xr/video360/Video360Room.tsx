@@ -40,7 +40,7 @@ function Video360Room() {
       <ShakaPlayerComp { ...shakaProps }/>
       <Entity
         id="videoPlayerContainer"
-      ></Entity>
+      />
       <Entity
         primitive={videospherePrimitive}
         class="videosphere"

@@ -280,8 +280,8 @@ export function createMagicLink (emailPhone: string, linkType?: 'email' | 'sms')
 
     let type = 'email'
     let paramName = 'email'
-    const isEnableEmailMagicLink = (authConfig && authConfig.isEnableEmailMagicLink) ?? true
-    const isEnableSmsMagicLink = (authConfig && authConfig.isEnableSmsMagicLink) ?? false
+    const enableEmailMagicLink = (authConfig && authConfig.enableEmailMagicLink) ?? true
+    const enableSmsMagicLink = (authConfig && authConfig.enableSmsMagicLink) ?? false
 
     if (linkType === 'email') {
       type = 'email'
@@ -291,7 +291,7 @@ export function createMagicLink (emailPhone: string, linkType?: 'email' | 'sms')
       paramName = 'mobile'
     } else {
       if (validatePhoneNumber(emailPhone)) {
-        if (!isEnableSmsMagicLink) {
+        if (!enableSmsMagicLink) {
           dispatchAlertError(dispatch, 'Please input valid email address')
 
           return
@@ -299,7 +299,7 @@ export function createMagicLink (emailPhone: string, linkType?: 'email' | 'sms')
         type = 'sms'
         paramName = 'mobile'
       } else if (validateEmail(emailPhone)) {
-        if (!isEnableEmailMagicLink) {
+        if (!enableEmailMagicLink) {
           dispatchAlertError(dispatch, 'Please input valid phone number')
 
           return
