@@ -95,6 +95,10 @@
     "shaka-player-react": "^1.0.1",
     "socket.io-client": "^2.3.0",
     "socketio": "^1.0.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.17.2",
+    "stylint": "^2.0.0",
     "subscriptions-transport-ws": "^0.9.16",
     "three": "^0.115.0",
     "webpack": "^4.42.1"
