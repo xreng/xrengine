@@ -1,5 +1,4 @@
 import React from 'react'
-// @ts-ignore
 import { Entity } from 'aframe-react'
 import Skybox from './skybox'
 import { useRouter } from 'next/router'

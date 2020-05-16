@@ -1,5 +1,4 @@
 import React from 'react'
-// @ts-ignore
 import { Entity } from 'aframe-react'
 import Lights from './lights'
 import Skybox from './skybox'

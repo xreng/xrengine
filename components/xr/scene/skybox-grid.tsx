@@ -1,5 +1,4 @@
 import React from 'react'
-// @ts-ignore
 import { Entity } from 'aframe-react'
 
 import getConfig from 'next/config'

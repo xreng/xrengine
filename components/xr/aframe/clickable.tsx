@@ -6,7 +6,6 @@ export interface ClickableData {
   id?: string
   enabled?: boolean
   clickevent?: string
-  // user can pass string data through, including stringified JSON.
   clickeventData?: string,
   enableevent?: string
   disableevent?: string
