@@ -11,14 +11,6 @@ import { selectVideoState } from '../../../redux/video/selector'
 import { bindActionCreators, Dispatch } from 'redux'
 import { fetchPublicVideos } from '../../../redux/video/service'
 import { PublicVideo } from '../../../redux/video/actions'
-import PropTypes from 'prop-types'
-
-// TODO: Generate nav items from a config file
-
-interface VideoProps {
-  videos: any
-  fetchPublicVideos: typeof fetchPublicVideos
-}
 
 const mapStateToProps = (state: any) => {
   return {
@@ -30,7 +22,12 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchPublicVideos: bindActionCreators(fetchPublicVideos, dispatch)
 })
 
-export const VideoList = (props) => {
+interface Props {
+  videos: any
+  fetchPublicVideos: typeof fetchPublicVideos
+}
+
+export const VideoList = (props: Props) => {
   const { videos, fetchPublicVideos } = props
   useEffect(() => {
     fetchPublicVideos()
@@ -57,11 +54,6 @@ export const VideoList = (props) => {
       </div>
     </div>
   )
-}
-
-VideoList.propTypes = {
-  fetchPublicVideos: PropTypes.func.isRequired,
-  videos: PropTypes.any.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoList)

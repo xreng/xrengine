@@ -9,3 +9,5 @@ export const ProfileConnectionsPage = () => {
     </EmptyLayout>
   )
 }
+
+export default ProfileConnectionsPage

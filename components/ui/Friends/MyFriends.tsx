@@ -76,14 +76,13 @@ const MyFriends = (props: Props) => {
     loadUserRelationship(user.id, false)
   })
 
-  // eslint-disable-next-line camelcase
-  const UNSAFE_componentWillReceiveProps = (nextProps: any) => {
-    const { authState, userState } = nextProps
+  useEffect(() => {
     const user = authState.get('user') as User
     const updateNeeded = userState.get('updateNeeded')
-
     loadUserRelationship(user.id, updateNeeded)
-  }
+
+    loadUserRelationship(user.id, false)
+  }, [authState, userState])
 
   return (
     <div className={classes.root}>

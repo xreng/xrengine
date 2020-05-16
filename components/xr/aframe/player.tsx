@@ -27,7 +27,7 @@ export const PlayerComponentSchema: AFRAME.MultiPropertySchema<PlayerData> = {
   nafEnabled: { default: false }
 }
 
-export interface PlayerProps {
+export interface Props {
   player: Player,
   controls: PlayerControls,
   cameraRig: CameraRig,
@@ -39,7 +39,7 @@ export interface PlayerProps {
   getCursorType: () => string
 }
 
-export const PlayerComponent: AFRAME.ComponentDefinition<PlayerProps> = {
+export const PlayerComponent: AFRAME.ComponentDefinition<Props> = {
   schema: PlayerComponentSchema,
   data: {
   } as PlayerData,

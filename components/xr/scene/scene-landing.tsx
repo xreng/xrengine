@@ -4,16 +4,14 @@ import { Entity } from 'aframe-react'
 import Assets from './assets'
 import Environment from './environment'
 import Player from '../player/player'
-import './style.scss'
 import SvgVr from '../../icons/svg/Vr'
-
 import AframeComponentRegisterer from '../aframe/index'
+import './style.scss'
 
-const cellHeight = 0.5
-const cellContentHeight = 0.45
-const cellWidth = 6
-
-export default function LandingScene (): any {
+export const LandingScene = () => {
+  const cellHeight = 0.5
+  const cellContentHeight = 0.45
+  const cellWidth = 6
   return (
     <SceneContainer>
       <AframeComponentRegisterer />
@@ -24,7 +22,8 @@ export default function LandingScene (): any {
           columns={1}
           cell-height={cellHeight}
           cell-width={cellWidth}
-          cell-content-height={cellContentHeight}>
+          cell-content-height={cellContentHeight}
+        >
           <Entity
             primitive="a-media-cell"
             title="spoke"
@@ -34,7 +33,8 @@ export default function LandingScene (): any {
             cell-width={cellWidth}
             cell-content-height={cellContentHeight}
             mediatype="landing"
-            linktype="external"/>
+            linktype="external"
+          />
           <Entity
             primitive="a-media-cell"
             title="vrRoom"
@@ -43,7 +43,8 @@ export default function LandingScene (): any {
             cell-height={cellHeight}
             cell-width={cellWidth}
             cell-content-height={cellContentHeight}
-            mediatype="landing"/>
+            mediatype="landing"
+          />
           <Entity
             primitive="a-media-cell"
             title="video360"
@@ -52,7 +53,8 @@ export default function LandingScene (): any {
             cell-height={cellHeight}
             cell-width={cellWidth}
             cell-content-height={cellContentHeight}
-            mediatype="landing"/>
+            mediatype="landing"
+          />
           <Entity
             primitive="a-media-cell"
             title="store"
@@ -62,7 +64,8 @@ export default function LandingScene (): any {
             cell-width={cellWidth}
             cell-content-height={cellContentHeight}
             mediatype="landing"
-            linktype="external"/>
+            linktype="external"
+          />
         </Entity>
       </Entity>
       <Assets />
@@ -74,3 +77,5 @@ export default function LandingScene (): any {
     </SceneContainer>
   )
 }
+
+export default LandingScene

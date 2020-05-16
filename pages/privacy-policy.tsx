@@ -12,3 +12,5 @@ export const PrivacyPolicyPage = () => {
     </Layout>
   )
 }
+
+export default PrivacyPolicyPage

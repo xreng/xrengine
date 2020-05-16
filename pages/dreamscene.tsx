@@ -8,3 +8,5 @@ const Scene = dynamic(
 export const DreamScenePage = () => {
   return <Scene />
 }
+
+export default DreamScenePage

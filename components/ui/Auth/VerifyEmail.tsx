@@ -3,10 +3,17 @@ import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import './auth.scss'
-import PropTypes, { InferProps } from 'prop-types'
 import EmptyLayout from '../Layout/EmptyLayout'
+import { verifyEmail } from '../../../redux/auth/service'
 
-const VerifyEmail = (props: InferProps<typeof VerifyEmail.propTypes>) => {
+interface Props {
+  auth: any
+  type: string
+  token: string
+  verifyEmail: typeof verifyEmail
+}
+
+const VerifyEmail = (props: Props) => {
   const { verifyEmail, token } = props
 
   useEffect(() => {
@@ -30,11 +37,6 @@ const VerifyEmail = (props: InferProps<typeof VerifyEmail.propTypes>) => {
       </Container>
     </EmptyLayout>
   )
-}
-
-VerifyEmail.propTypes = {
-  token: PropTypes.string.isRequired,
-  verifyEmail: PropTypes.func.isRequired
 }
 
 export default VerifyEmail

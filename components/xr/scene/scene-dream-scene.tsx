@@ -4,7 +4,7 @@ import Environment from './environment-dream'
 import Player from '../player/player'
 import './style.scss'
 
-export const DreamSceneScene = () => {
+export const SceneDreamScene = () => {
   const [state, setState] = useState({ appRendered: false })
 
   useEffect(() => {
@@ -26,3 +26,5 @@ export const DreamSceneScene = () => {
     </div>
   )
 }
+
+export default SceneDreamScene

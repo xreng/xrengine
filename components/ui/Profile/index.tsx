@@ -9,11 +9,6 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import UserProfile from './UserIcon'
 import UserSettings from './userSettings'
-interface MProps {
-  open: boolean
-  handleClose: any
-  avatar: any
-}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,13 +26,15 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-const TabPanel = (props: any) => {
-  const { children, value, index } = props
-
-  return <Fragment>{value === index && children}</Fragment>
+interface Props {
+  open: boolean
+  handleClose: any
+  avatar: any
 }
 
-const ProfileModal: React.FC<MProps> = (props: MProps) => {
+const TabPanel = (props: any) => <Fragment>{props.value === props.index && props.children}</Fragment>
+
+const ProfileModal = (props: Props) => {
   const classes = useStyles()
   const [tabIndex, setTabIndex] = React.useState(0)
 

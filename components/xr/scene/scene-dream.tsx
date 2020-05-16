@@ -16,7 +16,7 @@ import { connect } from 'react-redux'
 import { selectScenesState } from '../../../redux/scenes/selector'
 import { fetchPublicScenes } from '../../../redux/scenes/service'
 
-interface DreamProps {
+interface Props {
   scenes: any
   fetchPublicScenes: typeof fetchPublicScenes
 }
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchPublicScenes: bindActionCreators(fetchPublicScenes, dispatch)
 })
 
-const DreamScene = (props: DreamProps): any => {
+const DreamScene = (props: Props) => {
   const { scenes, fetchPublicScenes } = props
 
   useEffect(() => {
@@ -39,6 +39,7 @@ const DreamScene = (props: DreamProps): any => {
       fetchPublicScenes()
     }
   })
+
   return (
     <SceneContainer>
       <AframeComponentRegisterer />

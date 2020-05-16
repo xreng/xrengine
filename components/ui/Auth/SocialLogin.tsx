@@ -12,7 +12,6 @@ import {
   loginUserByGoogle,
   loginUserByFacebook
 } from '../../../redux/auth/service'
-import PropTypes, { InferProps } from 'prop-types'
 import './auth.scss'
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -21,11 +20,21 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   loginUserByFacebook: bindActionCreators(loginUserByFacebook, dispatch)
 })
 
-const SocialLogin = (props: InferProps<typeof SocialLogin.propTypes>) => {
+interface Props {
+  auth: any
+  isEnabledFacebook?: boolean
+  isEnabledGithub?: boolean
+  isEnabledGoogle?: boolean
+  loginUserByGithub: typeof loginUserByGithub
+  loginUserByGoogle: typeof loginUserByGoogle
+  loginUserByFacebook: typeof loginUserByFacebook
+};
+
+const SocialLogin = (props: Props) => {
   const {
     isEnabledFacebook,
-    isEnabledGoogle,
     isEnabledGithub,
+    isEnabledGoogle,
     loginUserByFacebook,
     loginUserByGoogle,
     loginUserByGithub
@@ -103,15 +112,6 @@ const SocialLogin = (props: InferProps<typeof SocialLogin.propTypes>) => {
       </div>
     </Container>
   )
-}
-
-SocialLogin.propTypes = {
-  isEnabledFacebook: PropTypes.bool.isRequired,
-  isEnabledGithub: PropTypes.bool.isRequired,
-  isEnabledGoogle: PropTypes.bool.isRequired,
-  loginUserByFacebook: PropTypes.func.isRequired,
-  loginUserByGithub: PropTypes.func.isRequired,
-  loginUserByGoogle: PropTypes.func.isRequired
 }
 
 const SocialLoginWrapper = (props: any) => <SocialLogin {...props} />

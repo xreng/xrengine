@@ -5,10 +5,9 @@ import { selectAlertState } from '../../../redux/alert/selector'
 import { alertCancel } from '../../../redux/alert/service'
 import { bindActionCreators, Dispatch } from 'redux'
 import { Box } from '@material-ui/core'
-import PropTypes from 'prop-types'
 import './alerts.scss'
 
-type Props = {
+interface Props {
   alert: any
   alertCancel: typeof alertCancel
 }
@@ -23,7 +22,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   alertCancel: bindActionCreators(alertCancel, dispatch)
 })
 
-const Alerts = (props) => {
+const Alerts = (props: Props) => {
   const { alert, alertCancel } = props
 
   const handleClose = (e: any) => {
@@ -54,10 +53,5 @@ const Alerts = (props) => {
 }
 
 const AlertsWrapper = (props: any) => <Alerts {...props} />
-
-Alerts.propTypes = AlertsWrapper.propTypes = {
-  alert: PropTypes.any.isRequired,
-  alertCancel: PropTypes.any.isRequired
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlertsWrapper)

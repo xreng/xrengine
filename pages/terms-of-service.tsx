@@ -12,3 +12,5 @@ export const TermsOfServicePage = () => {
     </Layout>
   )
 }
+
+export default TermsOfServicePage

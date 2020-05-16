@@ -21,7 +21,7 @@ export const ClickableComponentSchema: AFRAME.MultiPropertySchema<ClickableData>
   disableevent: { type: 'string', default: 'disable-clickable' }
 }
 
-export interface ClickableProps {
+export interface Props {
   clickHandler: () => void,
   raycasterIntersectedHandler: (e: any) => void,
   raycasterIntersectedClearedHandler: () => void,
@@ -33,7 +33,7 @@ export interface ClickableProps {
   beganClickableClass: boolean
 }
 
-export const ClickableComponent: AFRAME.ComponentDefinition<ClickableProps> = {
+export const ClickableComponent: AFRAME.ComponentDefinition<Props> = {
   schema: ClickableComponentSchema,
   data: {
   } as ClickableData,

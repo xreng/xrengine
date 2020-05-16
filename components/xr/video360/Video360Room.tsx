@@ -1,14 +1,12 @@
 
 import React from 'react'
-// @ts-ignore
 import { Entity } from 'aframe-react'
 import AFRAME from 'aframe'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import VideoControls from './VideoControls'
 import AframeComponentRegisterer from '../aframe'
-import { shakaPropTypes } from './ShakaPlayerComp'
-const ShakaPlayerComp = dynamic(() => import('./ShakaPlayerComp'), { ssr: false })
+const ShakaPlayer = dynamic(() => import('./ShakaPlayer'), { ssr: false })
 
 const dashManifestName = 'manifest.mpd'
 const hlsPlaylistName = 'master.m3u8'
@@ -22,22 +20,16 @@ function Video360Room() {
   const router = useRouter()
   const manifest = router.query.manifest as string
   const title = router.query.title as string
-  // const runtime = router.query.runtime as string
-  // const credit = router.query.credit as string
-  // const rating = router.query.rating as string
-  // const categories = router.query.categories as string
-  // const tags = router.query.tags as string
   const format = router.query.videoformat as string
 
-  const text = `${title || ''}\n\n(click to play)`
-  // \n\n${runtime || ''}\n${credit || ''}\n${'rating: ' + rating}\n${categories || ''}\n${tags || ''}
+  const text = `${title || ''}\n\n(Click to Play)`
 
-  const shakaProps: shakaPropTypes = { manifestUri: getManifestUri(manifest) }
+  const shakaProps = { manifestUri: getManifestUri(manifest) }
   const videospherePrimitive = format === 'eac' ? 'a-eaccube' : 'a-videosphere'
   return (
     <Entity>
       <AframeComponentRegisterer/>
-      <ShakaPlayerComp { ...shakaProps }/>
+      <ShakaPlayer { ...shakaProps }/>
       <Entity
         id="videoPlayerContainer"
       />

@@ -20,3 +20,5 @@ export const SkyboxGrid = () =>
   ) : (
     ''
   )
+
+export default SkyboxGrid

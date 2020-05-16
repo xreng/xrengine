@@ -11,3 +11,5 @@ export const DreamPage = () => (
     <Scene />
   </Layout>
 )
+
+export default DreamPage

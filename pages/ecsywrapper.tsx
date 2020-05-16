@@ -4,3 +4,5 @@ import dynamic from 'next/dynamic'
 const EcsyPage = dynamic(() => import('./ecsy'), { ssr: false })
 
 export const EcsyWrapper = () => <EcsyPage />
+
+export default EcsyWrapper

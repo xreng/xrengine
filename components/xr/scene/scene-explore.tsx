@@ -76,7 +76,7 @@ const ExploreScene = (props: VideoProps): any => {
     setExploreState({ focusedCellEl: null, focusedCell: null })
   }
 
-  const watchVideo = () => {
+  const WatchVideo = () => {
     if (exploreState.focusedCellEl === null) return
     const url = exploreState.focusedCell?.mediaUrl
     const title = exploreState.focusedCell?.title
@@ -95,13 +95,13 @@ const ExploreScene = (props: VideoProps): any => {
     if (videos.get('videos').size === 0) {
       fetchPublicVideos()
     }
-    document.addEventListener('watchbutton', watchVideo)
+    document.addEventListener('watchbutton', WatchVideo)
     document.addEventListener('backbutton', unFocusCell)
     return () => {
-      document.removeEventListener('watchbutton', watchVideo)
+      document.removeEventListener('watchbutton', WatchVideo)
       document.removeEventListener('backbutton', unFocusCell)
     }
-  }, [watchVideo, unFocusCell])
+  }, [WatchVideo, unFocusCell])
 
   return (
     <SceneContainer>
@@ -120,7 +120,6 @@ const ExploreScene = (props: VideoProps): any => {
                 key={i}
                 id={'explore-cell-' + i}
                 primitive="a-media-cell"
-                // original-title={video.original_title}
                 title={video.name}
                 description={video.description}
                 media-url={video.url}

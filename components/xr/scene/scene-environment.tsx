@@ -33,3 +33,5 @@ export const EnvironmentScene = () => {
     </div>
   )
 }
+
+export default EnvironmentScene

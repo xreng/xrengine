@@ -55,3 +55,5 @@ export const VideoScene = () => {
     </div>
   )
 }
+
+export default VideoScene

@@ -64,15 +64,11 @@ const UserList = (props: Props) => {
     loadUsers(user.id, false)
   })
 
-  // TODO: Replace with effect!
-  // eslint-disable-next-line camelcase
-  const UNSAFE_componentWillReceiveProps = (nextProps: any) => {
-    const { authState, userState } = nextProps
+  useEffect(() => {
     const user = authState.get('user') as User
     const updateNeeded = userState.get('updateNeeded')
-
     loadUsers(user.id, updateNeeded)
-  }
+  }, [authState, userState, userState.get('updateNeeded')])
 
   return (
     <div className={classes.root}>

@@ -6,22 +6,16 @@ import { uploadFile } from '../../../redux/video/service'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 
-interface ProfileProps {
-  avatar: any
-  uploadFile: typeof uploadFile
-}
-
-// const mapStateToProps = (state: any) => {
-//   return {
-//     auth: selectAuthState(state)
-//   }
-// }
-
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   uploadFile: bindActionCreators(uploadFile, dispatch)
 })
 
-const UserProfile: React.FC<ProfileProps> = (props: ProfileProps) => {
+interface Props {
+  avatar: any
+  uploadFile: typeof uploadFile
+}
+
+const UserProfile = (props: Props) => {
   const [file, setFile] = React.useState({})
   const [fileUrl, setFileUrl] = React.useState('')
   const handleChange = (e: any) => {

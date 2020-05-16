@@ -59,3 +59,5 @@ export const AframeComponentRegisterer = () => {
 
   return null
 }
+
+export default AframeComponentRegisterer

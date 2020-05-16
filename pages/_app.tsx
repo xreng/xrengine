@@ -14,20 +14,16 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from '../components/assets/theme'
 import { restoreState } from '../redux/persisted.store'
 import { doLoginAuto } from '../redux/auth/service'
-import PropTypes from 'prop-types'
 
 import getConfig from 'next/config'
 
 const config = getConfig().publicRuntimeConfig
-type PageLoaderProps = {
+interface Props {
   Component: ComponentType
   pageProps: any
 }
 
-export const PageLoader = ({
-  Component,
-  pageProps
-}: PropTypes.InferProps<typeof PageLoader.propTypes>) => {
+export const PageLoader = ({ Component, pageProps }: Props) => {
   const [state, setState] = useState({ aframeReady: false })
 
   useEffect(() => {
@@ -40,16 +36,11 @@ export const PageLoader = ({
   return <Component {...pageProps} aframeReady={state.aframeReady} />
 }
 
-PageLoader.propTypes = {
-  Component: PropTypes.node.isRequired,
-  pageProps: PropTypes.any.isRequired
-}
-
-interface Props extends AppProps {
+interface MyAppProps extends AppProps {
   store: Store
 }
 
-class MyApp extends App<Props> {
+class MyApp extends App<MyAppProps> {
   componentDidMount() {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles && jssStyles.parentNode) {

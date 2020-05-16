@@ -26,3 +26,5 @@ export const PortalsPage = () => {
     </Layout>
   )
 }
+
+export default PortalsPage

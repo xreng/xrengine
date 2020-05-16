@@ -7,13 +7,17 @@ import LoadingScreen from '../../ui/Loader'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import isExternalUrl from '../../../utils/isExternalUrl'
-import PropTypes from 'prop-types'
 
-export const SceneContainer = ({ children }): any => {
+type Props = {
+  children: any
+}
+
+export const SceneContainer = ({ children }: Props): any => {
   const dispatch = useDispatch()
   const loaded = useSelector((state) => selectAppState(state)).get('loaded')
   const setLoaded = (loaded) => dispatch(setAppLoaded(loaded))
   const router = useRouter()
+
   const navigateToUrl = (e) => {
     let url = e.detail.url
     setLoaded(false)
@@ -30,12 +34,14 @@ export const SceneContainer = ({ children }): any => {
     // navigate to internal url using next/router
     router.push(url)
   }
+
   useEffect(() => {
     document.addEventListener('navigate', navigateToUrl)
     return () => {
       document.removeEventListener('navigate', navigateToUrl)
     }
   }, [navigateToUrl])
+
   return (
     <>
       {!loaded && <LoadingScreen />}
@@ -56,10 +62,6 @@ export const SceneContainer = ({ children }): any => {
       </Scene>
     </>
   )
-}
-
-SceneContainer.propTypes = {
-  children: PropTypes.array.isRequired
 }
 
 export default SceneContainer

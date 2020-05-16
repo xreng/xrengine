@@ -4,19 +4,14 @@ import { Environment } from './environment'
 import Player from '../player/player'
 import './style.scss'
 import SvgVr from '../../icons/svg/Vr'
-import PropTypes from 'prop-types'
 
 import AframeComponentRegisterer from '../aframe/index'
 
-type Props = {
+interface Props {
   children?: any
 }
 
-type State = {
-  color?: string
-}
-
-export const SceneRoot = (props) => {
+export const SceneRoot = (props: Props) => {
   const { children } = props
   return (
     <div style={{ height: '100%', width: '100%' }}>
@@ -33,6 +28,4 @@ export const SceneRoot = (props) => {
   )
 }
 
-SceneRoot.propTypes = {
-  children: PropTypes.array.isRequired
-}
+export default SceneRoot

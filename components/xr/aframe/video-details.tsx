@@ -42,7 +42,7 @@ export const VideoDetailsComponentSchema: AFRAME.MultiPropertySchema<VideoDetail
   linkEnabled: { default: true }
 }
 
-export interface VideoDetailsProps {
+export interface Props {
   initDetailsl: () => void,
   createCell: () => AFRAME.Entity,
   createDetails: () => AFRAME.Entity,
@@ -57,7 +57,7 @@ export interface VideoDetailsProps {
   createBackButton: () => AFRAME.Entity
 }
 
-export const VideoDetailsComponent: AFRAME.ComponentDefinition<VideoDetailsProps> = {
+export const VideoDetailsComponent: AFRAME.ComponentDefinition<Props> = {
   schema: VideoDetailsComponentSchema,
   data: {
   } as VideoDetailsData,

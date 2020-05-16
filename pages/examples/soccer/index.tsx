@@ -128,3 +128,4 @@ export const AframeWindow = () => {
     </div>
   )
 }
+export default AframeWindow

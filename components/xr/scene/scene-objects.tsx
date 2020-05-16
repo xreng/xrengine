@@ -1,5 +1,4 @@
 import React from 'react'
-// @ts-ignore
 import { Entity } from 'aframe-react'
 
 export const SceneObjects = () => (
@@ -48,3 +47,5 @@ export const SceneObjects = () => (
     </Entity>
   </Entity>
 )
+
+export default SceneObjects

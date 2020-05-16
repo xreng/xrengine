@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import shaka from 'shaka-player'
 import AFRAME from 'aframe'
-import PropTypes from 'prop-types'
 
 const initApp = (manifestUri: string) => {
   shaka.polyfill.installAll()
@@ -41,7 +40,9 @@ const forceIOSCanvasRepaint = () => {
   canvasEl.height = height
 }
 
-export const ShakaPlayer = (props) => {
+interface Props { manifestUri: string }
+
+export const ShakaPlayer = (props: Props) => {
   const { manifestUri } = props
 
   useEffect(() => {
@@ -53,4 +54,4 @@ export const ShakaPlayer = (props) => {
   return null
 }
 
-ShakaPlayer.propTypes = { manifestUri: PropTypes.string.isRequired }
+export default ShakaPlayer

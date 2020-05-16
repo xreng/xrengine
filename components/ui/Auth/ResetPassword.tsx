@@ -4,9 +4,14 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import EmptyLayout from '../Layout/EmptyLayout'
-import PropTypes, { InferProps } from 'prop-types'
+import { resetPassword } from '../../../redux/auth/service'
 
-const ResetPassword = (props: InferProps<typeof ResetPassword.propTypes>) => {
+interface Props {
+  resetPassword: typeof resetPassword,
+  token: string
+}
+
+const ResetPassword = (props: Props) => {
   const { resetPassword, token } = props
   const initialState = { password: '' }
   const [state, setState] = useState(initialState)
@@ -57,11 +62,6 @@ const ResetPassword = (props: InferProps<typeof ResetPassword.propTypes>) => {
       </Container>
     </EmptyLayout>
   )
-}
-
-ResetPassword.propTypes = {
-  resetPassword: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired
 }
 
 export default ResetPassword

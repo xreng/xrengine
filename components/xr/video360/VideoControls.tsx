@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Router from 'next/router'
 import './VideoControls.scss'
-import PropTypes from 'prop-types'
 
 type Props = {
   videosrc: string,
@@ -14,7 +13,7 @@ const initialState = {
   end: false
 }
 
-export const Video360Room = (props) => {
+export const VideoControls = (props: Props) => {
   const [state, setState] = useState(initialState)
   const { videosrc, videotext, videovrui } = props
 
@@ -82,8 +81,4 @@ export const Video360Room = (props) => {
   )
 }
 
-Video360Room.propTypes = {
-  videosrc: PropTypes.string.isRequired,
-  videotext: PropTypes.string.isRequired,
-  videovrui: PropTypes.any.isRequired
-}
+export default VideoControls

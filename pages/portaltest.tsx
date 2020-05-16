@@ -17,3 +17,5 @@ export const PortalTestPage = () => {
     </Layout>
   )
 }
+
+export default PortalTestPage

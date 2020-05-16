@@ -38,11 +38,11 @@ export const ArrowComponentSchema: AFRAME.MultiPropertySchema<ArrowData> = {
   disabledopacity: { type: 'number', default: 0.2 }
 }
 
-export interface ArrowProps {
+export interface Props {
   createArrow: () => void,
 }
 
-export const ArrowComponent: AFRAME.ComponentDefinition<ArrowProps> = {
+export const ArrowComponent: AFRAME.ComponentDefinition<Props> = {
   schema: ArrowComponentSchema,
   data: {
   } as ArrowData,

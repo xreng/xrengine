@@ -4,7 +4,7 @@ import { Entity } from 'aframe-react'
 import Skybox from './skybox'
 import { useRouter } from 'next/router'
 
-export default function EnvironmentDream() {
+export const EnvironmentDream = () => {
   const router = useRouter()
   const url = router.query.url as string
   const x = router.query.x as string || 0
@@ -23,3 +23,5 @@ export default function EnvironmentDream() {
     </Entity>
   )
 }
+
+export default EnvironmentDream
