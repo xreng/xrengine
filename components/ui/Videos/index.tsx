@@ -1,5 +1,5 @@
 // import NavItem from '../NavItem'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 
 // import { siteTitle } from '../../../config/server'

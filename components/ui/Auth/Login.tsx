@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import EmailIcon from '@material-ui/icons/Email'
 import SocialIcon from '@material-ui/icons/Public'
 import UserIcon from '@material-ui/icons/Person'
@@ -28,7 +28,7 @@ const SignIn = () => {
   let isEnabledGithub = false
   let isEnabledGoogle = false
   let isEnabledFacebook = false
-  const [tabIndex, setTabIndex] = React.useState(0)
+  const [tabIndex, setTabIndex] = useState(0)
 
   const handleChange = (event: any, newValue: number) => {
     event.preventDefault()

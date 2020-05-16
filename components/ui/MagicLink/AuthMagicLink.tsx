@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useRouter, NextRouter } from 'next/router'
 import {
   verifyEmail,

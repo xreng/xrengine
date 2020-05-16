@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import SceneContainer from './scene-container'
 import { Entity } from 'aframe-react'
 import AFRAME from 'aframe'

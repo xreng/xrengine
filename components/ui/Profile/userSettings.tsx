@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
@@ -31,10 +31,10 @@ const UserSettings = () => {
     console.log(event)
     setAudio(newValue as number)
   }
-  const handleRadioValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRadioValue = (event: ChangeEvent<HTMLInputElement>) => {
     setradiovalue((event.target as HTMLInputElement).value)
   }
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked })
   }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Entity, Scene } from 'aframe-react'
 
 export const AframeWindow = () => {

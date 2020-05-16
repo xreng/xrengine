@@ -2,7 +2,7 @@
 import App, { AppProps } from 'next/app'
 import Head from 'next/head'
 // eslint-disable-next-line
-import React, { ComponentType, useEffect, useState } from 'react'
+import { ComponentType, useEffect, useState } from 'react'
 import withRedux from 'next-redux-wrapper'
 import { Provider } from 'react-redux'
 

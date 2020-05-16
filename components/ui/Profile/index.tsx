@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
@@ -19,7 +19,7 @@ interface Props {
 const TabPanel = (props: any) => <Fragment>{props.value === props.index && props.children}</Fragment>
 
 const ProfileModal = (props: Props) => {
-  const [tabIndex, setTabIndex] = React.useState(0)
+  const [tabIndex, setTabIndex] = useState(0)
 
   const handleChange = (event: any, newValue: number) => {
     event.preventDefault()

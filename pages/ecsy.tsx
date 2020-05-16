@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Layout from '../components/ui/Layout'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider, Query } from 'react-apollo'

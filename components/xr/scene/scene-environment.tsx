@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import SceneContainer from './scene-container'
 import Assets from './assets'
 import { Environment } from './environment'

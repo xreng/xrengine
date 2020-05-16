@@ -1,4 +1,3 @@
-/* global React */
 import { Fragment } from 'react'
 import { Entity } from 'aframe-react'
 import getConfig from 'next/config'

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import SceneContainer from './scene-container'
 import { Entity } from 'aframe-react'
 import Assets from './assets'

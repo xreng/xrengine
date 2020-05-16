@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, MouseEvent, useRef, useState, useEffect } from 'react'
+import { KeyboardEvent, MouseEvent, useRef, useState, useEffect } from 'react'
 import Button from '@material-ui/core/Button'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import Grow from '@material-ui/core/Grow'
@@ -18,7 +18,7 @@ const MenuListComposition = (props: Props) => {
   const { avatar, children } = props
   const [open, setOpen] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
-  const anchorRef = React.useRef<HTMLButtonElement>(null)
+  const anchorRef = useRef<HTMLButtonElement>(null)
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen)
@@ -39,7 +39,7 @@ const MenuListComposition = (props: Props) => {
     setOpen(false)
   }
 
-  const handleListKeyDown = (event: React.KeyboardEvent) => {
+  const handleListKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Tab') {
       event.preventDefault()
       setOpen(false)
