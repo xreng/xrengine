@@ -1,4 +1,3 @@
-import React from 'react'
 import SceneContainer from './scene-container'
 import { Environment } from './environment'
 import Player from '../player/player'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Entity } from 'aframe-react'
 
 import getConfig from 'next/config'

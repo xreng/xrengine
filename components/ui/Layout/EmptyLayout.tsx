@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { Fragment } from 'react'
 import Alerts from '../Common/Alerts'
 import UIDialog from '../Dialog/Dialog'
 
@@ -7,11 +7,11 @@ type Props = {
 }
 
 const EmptyLayout = ({ children }: Props) => (
-  <React.Fragment>
+  <Fragment>
     <UIDialog />
     <Alerts />
     {children}
-  </React.Fragment>
+  </Fragment>
 )
 
 export default EmptyLayout

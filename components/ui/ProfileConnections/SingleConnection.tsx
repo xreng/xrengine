@@ -85,11 +85,12 @@ const SingleConnection = (props: Props) => {
       return
     }
 
-    const newState = state
-    newState.identityProvider = user.identityProviders.find(
-      (v) => v.type === connectionType
-    )
-    setState(newState)
+    setState({
+      ...state,
+      identityProvider: user.identityProviders.find(
+        (v) => v.type === connectionType
+      )
+    })
   }, [])
 
   const disconnect = () => {

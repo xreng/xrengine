@@ -23,18 +23,16 @@ const ForgotPassword = (props: Props) => {
   const [state, setState] = useState({ email: '', isSubmitted: false })
 
   const handleInput = (e: any) => {
-    const currentState = { ...state, [e.target.name]: e.target.value }
-    setState(currentState)
+    e.preventDefault()
+    setState({ ...state, [e.target.name]: e.target.value })
   }
 
   const handleForgot = (e: any) => {
     e.preventDefault()
     forgotPassword(state.email)
-
-    const currentState = state
-    currentState.isSubmitted = true
-    setState(currentState)
+    setState({ ...state, isSubmitted: true })
   }
+
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>

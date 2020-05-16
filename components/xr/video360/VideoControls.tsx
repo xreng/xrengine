@@ -59,7 +59,7 @@ export const VideoControls = (props: Props) => {
     controller.classList.add('active')
     textEl?.setAttribute('text', { value: 'END\n\nclick to exit' })
     textEl?.setAttribute('visible', true)
-    setState({ playing: false, end: true })
+    setState({ ...state, playing: false, end: true })
   }
 
   const videoPlayHandler = () =>

@@ -17,7 +17,7 @@ export const EnvironmentScene = () => {
     if (typeof window !== 'undefined') {
       require('aframe')
       require('networked-aframe')
-      setState({ appRendered: true })
+      setState({ ...state, appRendered: true })
     }
   }, [])
 

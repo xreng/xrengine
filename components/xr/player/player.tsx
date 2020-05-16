@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { Entity } from 'aframe-react'
 
 const PlayerComp = () => {

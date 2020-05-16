@@ -1,4 +1,3 @@
-import React from 'react'
 import { Entity } from 'aframe-react'
 import Lights from './lights'
 import Skybox from './skybox'

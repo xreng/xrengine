@@ -19,7 +19,7 @@ export const VideoScene = () => {
       require('aframe')
       require('networked-aframe')
 
-      setState({ appRendered: true })
+      setState({ ...state, appRendered: true })
     }
   }, [])
 

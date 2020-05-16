@@ -1,6 +1,5 @@
 import Layout from '../components/ui/Layout'
 import dynamic from 'next/dynamic'
-import React from 'react'
 import Portal from '../components/xr/portal/Portal'
 import PortalCursor from '../components/xr/portal/PortalCursor'
 const SceneRoot = dynamic(() => import('../components/xr/scene'), {

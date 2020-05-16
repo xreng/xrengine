@@ -1,4 +1,3 @@
-import React from 'react'
 import { Entity } from 'aframe-react'
 
 // this cursor is required to be able to click portals/links

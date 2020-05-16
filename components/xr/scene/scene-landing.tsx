@@ -1,4 +1,3 @@
-import React from 'react'
 import SceneContainer from './scene-container'
 import { Entity } from 'aframe-react'
 import Assets from './assets'

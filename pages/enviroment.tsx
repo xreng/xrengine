@@ -1,5 +1,4 @@
 import Layout from '../components/ui/Layout'
-import React from 'react'
 import dynamic from 'next/dynamic'
 
 const Scene = dynamic(

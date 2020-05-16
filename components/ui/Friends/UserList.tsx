@@ -42,7 +42,7 @@ const UserList = (props: Props) => {
     ) {
       getUsers(userId)
 
-      setState({ userId })
+      setState({ ...state, userId })
     }
   }
 

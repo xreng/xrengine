@@ -13,11 +13,7 @@ export const AframeWindow = () => {
     if (typeof window !== 'undefined') {
       require('aframe')
       require('aframe-particle-system-component')
-
-      const newState = state
-      newState.appRendered = true
-
-      setState(newState)
+      setState({ ...state, appRendered: true})
     }
   }, [])
 

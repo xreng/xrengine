@@ -1,4 +1,3 @@
-import React from 'react'
 import { Entity } from 'aframe-react'
 import Skybox from './skybox'
 import { useRouter } from 'next/router'

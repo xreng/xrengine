@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
@@ -15,10 +15,10 @@ import Switch from '@material-ui/core/Switch'
 import './style.scss'
 
 const UserSettings = () => {
-  const [volume, setvolume] = React.useState<number>(30)
-  const [audio, setAudio] = React.useState<number>(30)
-  const [radiovalue, setradiovalue] = React.useState('high')
-  const [state, setState] = React.useState({
+  const [volume, setvolume] = useState<number>(30)
+  const [audio, setAudio] = useState<number>(30)
+  const [radiovalue, setradiovalue] = useState('high')
+  const [state, setState] = useState({
     checkedA: true,
     checkedB: true
   })

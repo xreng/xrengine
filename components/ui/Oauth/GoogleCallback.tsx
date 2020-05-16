@@ -42,7 +42,7 @@ const GoogleCallback = (props: Props) => {
       }
     }
 
-    setState({ error, token })
+    setState({ ...state, error, token })
   }, [])
 
   return state.error && state.error !== '' ? (

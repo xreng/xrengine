@@ -1,4 +1,3 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import Alert from '@material-ui/lab/Alert'
 import { selectAlertState } from '../../../redux/alert/selector'

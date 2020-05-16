@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { Entity } from 'aframe-react'
 import AFRAME from 'aframe'
 import { useRouter } from 'next/router'

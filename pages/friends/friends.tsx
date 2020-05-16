@@ -1,4 +1,3 @@
-import React from 'react'
 import EmptyLayout from '../../components/ui/Layout/EmptyLayout'
 import MyFriends from '../../components/ui/Friends/MyFriends'
 

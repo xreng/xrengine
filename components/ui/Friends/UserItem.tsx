@@ -50,7 +50,7 @@ const UserItem = (props: Props) => {
 
   useEffect(() => {
     const user = auth.get('user') as User
-    setState({ userId: user?.id, relatedUserId: data.id })
+    setState({ ...state, userId: user?.id, relatedUserId: data.id })
   }, [])
 
   const cancelFriend = () => declineFriend(state.userId, state.relatedUserId)

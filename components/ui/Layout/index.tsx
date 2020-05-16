@@ -1,5 +1,5 @@
+import { Fragment } from 'react'
 import getConfig from 'next/config'
-import React from 'react'
 import NavMenu from '../NavMenu'
 import Footer from '../Footer'
 import Head from 'next/head'
@@ -29,11 +29,11 @@ const Layout = (props: Props) => {
       <header>
         <NavMenu />
       </header>
-      <React.Fragment>
+      <Fragment>
         <UIDialog />
         <Alerts />
         {children}
-      </React.Fragment>
+      </Fragment>
       <Footer />
     </section>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import Button from '@material-ui/core/Button'
 import { uploadFile } from '../../../redux/video/service'
@@ -16,8 +16,8 @@ interface Props {
 }
 
 const UserProfile = (props: Props) => {
-  const [file, setFile] = React.useState({})
-  const [fileUrl, setFileUrl] = React.useState('')
+  const [file, setFile] = useState({})
+  const [fileUrl, setFileUrl] = useState('')
   const handleChange = (e: any) => {
     const efile = e.target.files[0]
     const formData = new FormData()

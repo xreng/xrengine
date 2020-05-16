@@ -46,14 +46,10 @@ const MyFriends = (props: Props) => {
   const friendsCount = friends?.length + requested?.length
 
   const loadUserRelationship = (userId: string, forceUpdate: boolean) => {
-    if (
-      userId &&
-      (forceUpdate || (userId !== state.userId && userId && userId !== ''))
+    if (userId && (forceUpdate || (userId !== state.userId && userId && userId !== ''))
     ) {
       getUserRelationship(userId)
-      const newState = state
-      newState.userId = userId
-      setState(newState)
+      setState({ ...state, userId })
     }
   }
 

@@ -1,5 +1,4 @@
 import NavUserWidget from '../NavUserWidget'
-import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Router from 'next/router'
 import getConfig from 'next/config'

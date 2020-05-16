@@ -29,7 +29,7 @@ export const PageLoader = ({ Component, pageProps }: Props) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       require('aframe')
-      setState({ aframeReady: true })
+      setState({ ...state, aframeReady: true })
     }
   }, [])
 
