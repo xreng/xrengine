@@ -225,7 +225,6 @@ export interface EaccubeShaderData {
   src: HTMLVideoElement | HTMLImageElement
 }
 
-// TODO cleanup type, should be AFRAME.MultiPropertySchema<EaccubeShaderData>: 'is' is mandatory but missing in AFRAME.SinglePropertySchema definition
 export const EaccubeShaderSchema: AFRAME.MultiPropertySchema<any> = {
   src: { type: 'map', is: 'uniform' }
 }

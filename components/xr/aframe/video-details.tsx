@@ -9,7 +9,7 @@ export interface VideoDetailsData {
   // originalTitle: string,
   title: string,
   description: string,
-  url: string, // TODO: type for url's
+  url: string,
   thumbnailUrl: string,
   productionCredit: string,
   rating: string,
@@ -29,7 +29,7 @@ export const VideoDetailsComponentSchema: AFRAME.MultiPropertySchema<VideoDetail
   // originalTitle: { default: '' },
   title: { default: '' },
   description: { default: '' },
-  url: { default: '' }, // TODO: type for url's
+  url: { default: '' },
   thumbnailUrl: { default: '' },
   productionCredit: { default: '' },
   rating: { default: '' },
