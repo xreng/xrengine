@@ -30,7 +30,7 @@ export const VideoControls = (props: Props) => {
     videovruiEl?.addEventListener('triggerplay', playHandler.bind(this))
     videovruiEl?.addEventListener('triggerpause', pauseHandler.bind(this))
     videovruiEl?.addEventListener('triggerback', exitVideoHandler.bind(this))
-  })
+  }, [])
 
   const clickHandler = (e: any) => {
     e.preventDefault()

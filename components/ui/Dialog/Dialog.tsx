@@ -56,7 +56,7 @@ const XDialog = (props: Props) => {
     Router.events.on('routeChangeStart', () => {
       closeDialog()
     })
-  })
+  }, [])
 
   const handleClose = (e: any) => {
     e.preventDefault()

@@ -118,7 +118,7 @@ const MagicLinkEmail = (props: Props) => {
         "Please enter your email address and we'll send you a login link via Email. "
       label = 'Email address'
     }
-  })
+  }, [])
 
   return (
     <Container component="main" maxWidth="xs">

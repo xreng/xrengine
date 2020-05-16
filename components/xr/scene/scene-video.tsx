@@ -21,7 +21,7 @@ export const VideoScene = () => {
 
       setState({ appRendered: true })
     }
-  })
+  }, [])
 
   const isDesktop = (): boolean =>
     !AFRAME.utils.device.isMobile() && !AFRAME.utils.device.checkHeadsetConnected()

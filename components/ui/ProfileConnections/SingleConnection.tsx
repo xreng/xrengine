@@ -107,7 +107,7 @@ const SingleConnection = (props: Props) => {
       (v) => v.type === connectionType
     )
     setState(newState)
-  })
+  }, [])
 
   const disconnect = () => {
     const identityProvider = state.identityProvider

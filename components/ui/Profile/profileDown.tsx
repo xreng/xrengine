@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { KeyboardEvent, MouseEvent, useRef, useState, useEffect } from 'react'
 import Button from '@material-ui/core/Button'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import Grow from '@material-ui/core/Grow'
@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme: Theme) =>
 const MenuListComposition = (props: Props) => {
   const { avatar, children } = props
   const classes = useStyles()
-  const [open, setOpen] = React.useState(false)
-  const [modalOpen, setModalOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
   const anchorRef = React.useRef<HTMLButtonElement>(null)
 
   const handleToggle = () => {
@@ -40,7 +40,7 @@ const MenuListComposition = (props: Props) => {
     setModalOpen(true)
     setOpen(false)
   }
-  const handleClose = (event: React.MouseEvent<EventTarget>) => {
+  const handleClose = (event: MouseEvent<EventTarget>) => {
     if (
       anchorRef.current &&
       anchorRef.current.contains(event.target as HTMLElement)
@@ -60,8 +60,8 @@ const MenuListComposition = (props: Props) => {
   const modalClose = () => {
     setModalOpen(false)
   }
-  const prevOpen = React.useRef(open)
-  React.useEffect(() => {
+  const prevOpen = useRef(open)
+  useEffect(() => {
     if (prevOpen.current === true && open === false) {
       anchorRef.current!.focus()
     }

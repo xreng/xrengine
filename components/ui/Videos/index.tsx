@@ -31,7 +31,7 @@ export const VideoList = (props: Props) => {
   const { videos, fetchPublicVideos } = props
   useEffect(() => {
     fetchPublicVideos()
-  })
+  }, [])
   return (
     <div>
       <Button variant="contained" color="primary" className={'back'} href="/">

@@ -20,7 +20,7 @@ export const AframeWindow = () => {
 
       setState(newState)
     }
-  })
+  }, [])
 
   const changeColor = () => {
     const colors = ['red', 'orange', 'yellow', 'green', 'blue']

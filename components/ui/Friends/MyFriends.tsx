@@ -74,7 +74,7 @@ const MyFriends = (props: Props) => {
   useEffect(() => {
     const user = authState.get('user') as User
     loadUserRelationship(user.id, false)
-  })
+  }, [])
 
   useEffect(() => {
     const user = authState.get('user') as User

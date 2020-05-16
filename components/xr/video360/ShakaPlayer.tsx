@@ -49,7 +49,7 @@ export const ShakaPlayer = (props: Props) => {
     const sceneEl = document.querySelector('a-scene')
     if (sceneEl?.hasLoaded) initApp(manifestUri)
     else sceneEl?.addEventListener('loaded', initApp.bind(this, props.manifestUri))
-  })
+  }, [])
 
   return null
 }

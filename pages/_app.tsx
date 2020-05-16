@@ -31,7 +31,7 @@ export const PageLoader = ({ Component, pageProps }: Props) => {
       require('aframe')
       setState({ aframeReady: true })
     }
-  })
+  }, [])
 
   return <Component {...pageProps} aframeReady={state.aframeReady} />
 }

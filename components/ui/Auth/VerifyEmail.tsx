@@ -18,7 +18,7 @@ const VerifyEmail = (props: Props) => {
 
   useEffect(() => {
     verifyEmail(token)
-  })
+  }, [])
 
   return (
     <EmptyLayout>

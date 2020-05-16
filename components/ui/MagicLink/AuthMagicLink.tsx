@@ -47,7 +47,7 @@ const AuthMagicLink = (props: Props) => {
       }
       window.location.href = '/profile-connections'
     }
-  })
+  }, [])
 
   return (
     <Container component="main" maxWidth="md">

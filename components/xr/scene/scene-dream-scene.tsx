@@ -13,7 +13,7 @@ export const SceneDreamScene = () => {
       require('networked-aframe')
       setState({ appRendered: true })
     }
-  })
+  }, [])
 
   return (
     <div style={{ height: '100%', width: '100%' }}>

@@ -38,7 +38,7 @@ const DreamScene = (props: Props) => {
     if (scenes.get('scenes').size === 0) {
       fetchPublicScenes()
     }
-  })
+  }, [])
 
   return (
     <SceneContainer>

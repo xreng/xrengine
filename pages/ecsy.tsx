@@ -42,7 +42,7 @@ const EcsyPage = () => {
         })
         console.log(result.data)
       })
-  })
+  }, [])
 
   return (
     <ApolloProvider client={client}>

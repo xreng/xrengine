@@ -28,7 +28,7 @@ export const EcsyPage = () => {
     // console.log(entityArray)
     // console.log(testEntity)
     init()
-  })
+  }, [])
 
   const init = () => {
     client

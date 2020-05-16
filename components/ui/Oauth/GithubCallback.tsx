@@ -45,7 +45,7 @@ const GithubCallback = (props: Props) => {
     }
 
     setState({ error, token })
-  })
+  }, [])
 
   return state.error && state.error !== '' ? (
     <Container>

@@ -68,7 +68,7 @@ const UserItem = (props: Props) => {
   useEffect(() => {
     const user = auth.get('user') as User
     setState({ userId: user?.id, relatedUserId: data.id })
-  })
+  }, [])
 
   const cancelFriend = () => declineFriend(state.userId, state.relatedUserId)
   const request = () => requestFriend(state.userId, state.relatedUserId)

@@ -62,7 +62,7 @@ const UserList = (props: Props) => {
   useEffect(() => {
     const user = authState.get('user') as User
     loadUsers(user.id, false)
-  })
+  }, [])
 
   useEffect(() => {
     const user = authState.get('user') as User
