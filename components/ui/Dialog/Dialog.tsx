@@ -10,32 +10,12 @@ import { selectDialogState } from '../../../redux/dialog/selector'
 import { closeDialog } from '../../../redux/dialog/service'
 import { bindActionCreators, Dispatch } from 'redux'
 import Router from 'next/router'
-import { createStyles, makeStyles } from '@material-ui/core/styles'
+import './style.scss'
 
 interface Props {
   dialog: any
-  classes: any
   closeDialog: typeof closeDialog
 }
-
-const useStyles = makeStyles((/* theme: Theme */) =>
-  createStyles({
-    dialogTitle: {
-      margin: 0,
-      padding: '10px'
-    },
-
-    dialogCloseButton: {
-      position: 'absolute',
-      right: '10px',
-      top: '10px',
-      zIndex: 2000
-    },
-
-    dialogContent: {
-      paddingBottom: '40px'
-    }
-  }))
 
 const mapStateToProps = (state: any) => {
   return {
@@ -48,7 +28,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 })
 
 const XDialog = (props: Props) => {
-  const { dialog, classes, closeDialog } = props
+  const { dialog, closeDialog } = props
   const isOpened = dialog.get('isOpened')
   const content = dialog.get('content')
 
@@ -65,24 +45,24 @@ const XDialog = (props: Props) => {
 
   return (
     <Dialog open={isOpened} onClose={handleClose} aria-labelledby="xr-dialog">
-      <DialogTitle disableTypography className={classes.dialogTitle}>
+      <DialogTitle disableTypography className="dialogTitle">
         <Typography variant="h6">{(content && content.title) ?? ''}</Typography>
         <IconButton
           aria-label="close"
-          className={classes.dialogCloseButton}
+          className="dialogCloseButton"
           onClick={handleClose}
         >
           <CloseIcon />
         </IconButton>
       </DialogTitle>
 
-      <DialogContent className={classes.dialogContent}>
+      <DialogContent className="dialogContent">
         {content && content.children}
       </DialogContent>
     </Dialog>
   )
 }
 
-const DialogWrapper = (props: any) => <XDialog {...props} classes={ useStyles() } />
+const DialogWrapper = (props: any) => <XDialog {...props } />
 
 export default connect(mapStateToProps, mapDispatchToProps)(DialogWrapper)

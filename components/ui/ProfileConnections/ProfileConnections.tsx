@@ -1,5 +1,4 @@
 import React from 'react'
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
@@ -7,19 +6,7 @@ import { connect } from 'react-redux'
 import { selectAuthState } from '../../../redux/auth/selector'
 import SingleConnection from './SingleConnection'
 import { User } from '../../../interfaces/User'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      backgroundColor: theme.palette.background.paper,
-      padding: '10px'
-    },
-    section1: {
-      padding: theme.spacing(3)
-    }
-  })
-)
+import './style.scss'
 
 interface Props {
   auth: any
@@ -69,11 +56,7 @@ const ProfileConnections = (props: Props) => {
   )
 }
 
-const ProfileConnectionsWrapper = (props: any) => {
-  const classes = useStyles()
-
-  return <ProfileConnections {...props} classes={classes} />
-}
+const ProfileConnectionsWrapper = (props: any) => <ProfileConnections {...props} />
 
 export default connect(
   mapStateToProps,

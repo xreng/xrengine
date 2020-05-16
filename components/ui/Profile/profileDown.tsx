@@ -6,28 +6,16 @@ import Paper from '@material-ui/core/Paper'
 import Popper from '@material-ui/core/Popper'
 import MenuItem from '@material-ui/core/MenuItem'
 import MenuList from '@material-ui/core/MenuList'
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 import ProfileModal from './index'
+import './style.scss'
 
 interface Props {
   avatar: any
   children: any
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex'
-    },
-    paper: {
-      marginRight: theme.spacing(2)
-    }
-  })
-)
-
 const MenuListComposition = (props: Props) => {
   const { avatar, children } = props
-  const classes = useStyles()
   const [open, setOpen] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
   const anchorRef = React.useRef<HTMLButtonElement>(null)
@@ -70,7 +58,7 @@ const MenuListComposition = (props: Props) => {
   }, [open])
 
   return (
-    <div className={classes.root}>
+    <div className="root">
       <div>
         <Button
           ref={anchorRef}

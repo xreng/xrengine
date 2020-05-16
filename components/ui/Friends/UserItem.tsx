@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Avatar from '@material-ui/core/Avatar'
@@ -16,23 +15,7 @@ import {
 } from '../../../redux/user/service'
 import { Button } from '@material-ui/core'
 import { User } from '../../../interfaces/User'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      backgroundColor: theme.palette.background.paper
-    },
-    button: {
-      '&:hover': {
-        textDecoration: 'none'
-      },
-
-      color: 'black',
-      fontSize: '20px'
-    }
-  })
-)
+import './style.scss'
 
 interface Props {
   auth: any
@@ -151,8 +134,6 @@ const UserItem = (props: Props) => {
   )
 }
 
-const UserItemWrapper = (props: any) => (
-  <UserItem {...props} classes={useStyles()} />
-)
+const UserItemWrapper = (props: any) => <UserItem {...props} />
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserItemWrapper)

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
@@ -13,19 +12,7 @@ import { Relationship } from '../../../interfaces/Relationship'
 import { Dispatch, bindActionCreators } from 'redux'
 import { getUserRelationship } from '../../../redux/user/service'
 import NextLink from 'next/link'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      backgroundColor: theme.palette.background.paper,
-      padding: '10px'
-    },
-    section1: {
-      padding: theme.spacing(3)
-    }
-  })
-)
+import './style.scss'
 
 const mapStateToProps = (state: any) => {
   return {
@@ -41,12 +28,11 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 interface Props {
   userState: any
   authState: any
-  classes: any
   getUserRelationship: typeof getUserRelationship
 }
 
 const MyFriends = (props: Props) => {
-  const { userState, authState, classes, getUserRelationship } = props
+  const { userState, authState, getUserRelationship } = props
   const initialState = {
     userId: undefined,
     updateNeeded: false
@@ -85,8 +71,8 @@ const MyFriends = (props: Props) => {
   }, [authState, userState])
 
   return (
-    <div className={classes.root}>
-      <div className={classes.section1}>
+    <div className="root">
+      <div className="section1">
         <Grid container alignItems="center">
           <Grid item xs>
             <Typography variant="h4">Friends</Typography>
@@ -129,6 +115,6 @@ const MyFriends = (props: Props) => {
   )
 }
 
-const MyFriendsWrapper = (props: any) => <MyFriends {...props} classes={useStyles()} />
+const MyFriendsWrapper = (props: any) => <MyFriends {...props} />
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyFriendsWrapper)

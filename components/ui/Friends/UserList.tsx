@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
 import Typography from '@material-ui/core/Typography'
@@ -10,19 +9,7 @@ import { selectAuthState } from '../../../redux/auth/selector'
 import { User } from '../../../interfaces/User'
 import UserItem from './UserItem'
 import { getUsers } from '../../../redux/user/service'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      backgroundColor: theme.palette.background.paper,
-      padding: '10px'
-    },
-    section1: {
-      padding: theme.spacing(3)
-    }
-  })
-)
+import './style.scss'
 
 interface Props {
   userState: any
@@ -99,8 +86,6 @@ const UserList = (props: Props) => {
   )
 }
 
-const UserListWrapper = (props: any) => (
-  <UserList {...props} classes={useStyles()} />
-)
+const UserListWrapper = (props: any) => <UserList {...props} />
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserListWrapper)

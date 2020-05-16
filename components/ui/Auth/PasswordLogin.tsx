@@ -16,7 +16,7 @@ import { loginUserByPassword, addConnectionByPassword } from '../../../redux/aut
 import { showDialog, closeDialog } from '../../../redux/dialog/service'
 import SignUp from '../Auth/Register'
 import ForgotPassword from '../Auth/ForgotPassword'
-import './auth.scss'
+import './style.scss'
 import { User } from '../../../interfaces/User'
 
 const mapStateToProps = (state: any) => {

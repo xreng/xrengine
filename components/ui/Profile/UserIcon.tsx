@@ -1,10 +1,10 @@
 import React from 'react'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import Button from '@material-ui/core/Button'
-import './style.scss'
 import { uploadFile } from '../../../redux/video/service'
 import { bindActionCreators, Dispatch } from 'redux'
 import { connect } from 'react-redux'
+import './style.scss'
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   uploadFile: bindActionCreators(uploadFile, dispatch)

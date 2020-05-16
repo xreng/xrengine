@@ -1,5 +1,4 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
@@ -13,17 +12,9 @@ import MicIcon from '@material-ui/icons/Mic'
 import MicOffIcon from '@material-ui/icons/MicOff'
 import Slider from '@material-ui/core/Slider'
 import Switch from '@material-ui/core/Switch'
-// import {updateUserSettings} from '../../../redux/auth/service'
+import './style.scss'
 
-const useStyles = makeStyles({
-  root: {
-    width: 300,
-    padding: 20
-  }
-})
-
-const UserSettings: React.FC = () => {
-  const classes = useStyles()
+const UserSettings = () => {
   const [volume, setvolume] = React.useState<number>(30)
   const [audio, setAudio] = React.useState<number>(30)
   const [radiovalue, setradiovalue] = React.useState('high')
@@ -47,11 +38,8 @@ const UserSettings: React.FC = () => {
     setState({ ...state, [event.target.name]: event.target.checked })
   }
 
-  // const handleSubmit = () => {
-
-  // }
   return (
-    <div className={classes.root}>
+    <div className="root">
       <Typography id="continuous-slider" gutterBottom style={{ padding: 10 }}>
         Microphone volume
       </Typography>

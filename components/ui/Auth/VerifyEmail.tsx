@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
-import './auth.scss'
 import EmptyLayout from '../Layout/EmptyLayout'
 import { verifyEmail } from '../../../redux/auth/service'
+import './style.scss'
 
 interface Props {
   auth: any

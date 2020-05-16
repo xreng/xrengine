@@ -7,26 +7,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import { forgotPassword } from '../../../redux/auth/service'
 import Grid from '@material-ui/core/Grid'
-import { createStyles, makeStyles } from '@material-ui/core/styles'
-
-const useStyles = makeStyles((/* theme: Theme */) =>
-  createStyles({
-    form: {
-      width: '100%',
-      marginTop: '14px'
-    },
-
-    submit: {
-      margin: '14px 0 !important'
-    },
-
-    paper: {
-      marginTop: '40px',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }
-  }))
+import './style.scss'
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   forgotPassword: bindActionCreators(forgotPassword, dispatch)
@@ -113,6 +94,6 @@ const ForgotPassword = (props: Props) => {
   )
 }
 
-const ForgotPasswordWrapper = (props) => <ForgotPassword {...props} classes={useStyles()} />
+const ForgotPasswordWrapper = (props) => <ForgotPassword {...props} />
 
 export default connect(mapDispatchToProps)(ForgotPasswordWrapper)

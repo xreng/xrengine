@@ -1,4 +1,3 @@
-import React from 'react'
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
@@ -7,9 +6,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import { resendVerificationEmail } from '../../../redux/auth/service'
 import { selectAuthState } from '../../../redux/auth/selector'
-import './auth.scss'
 import EmptyLayout from '../Layout/EmptyLayout'
 import { IdentityProvider } from '../../../interfaces/IdentityProvider'
+import { AuthUser } from '../../../interfaces/AuthUser'
+import './style.scss'
 
 const mapStateToProps = (state: any) => {
   return {

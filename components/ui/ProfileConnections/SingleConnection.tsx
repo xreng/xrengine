@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
@@ -22,23 +21,7 @@ import PasswordLogin from '../Auth/PasswordLogin'
 import { User } from '../../../interfaces/User'
 import { IdentityProviderSeed } from '../../../interfaces/IdentityProvider'
 import { showAlert } from '../../../redux/alert/actions'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      backgroundColor: theme.palette.background.paper
-    },
-    button: {
-      '&:hover': {
-        textDecoration: 'none'
-      },
-
-      color: 'black',
-      fontSize: '20px'
-    }
-  })
-)
+import './style.scss'
 
 interface Props {
   auth: any
@@ -207,10 +190,7 @@ const SingleConnection = (props: Props) => {
   )
 }
 
-const SingleConnectionWrapper = (props: any) => {
-  const classes = useStyles()
-  return <SingleConnection {...props} classes={classes} />
-}
+const SingleConnectionWrapper = (props: any) => <SingleConnection {...props} />
 
 export default connect(
   mapStateToProps,

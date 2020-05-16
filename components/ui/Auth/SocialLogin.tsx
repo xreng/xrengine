@@ -12,7 +12,7 @@ import {
   loginUserByGoogle,
   loginUserByFacebook
 } from '../../../redux/auth/service'
-import './auth.scss'
+import './style.scss'
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   loginUserByGithub: bindActionCreators(loginUserByGithub, dispatch),

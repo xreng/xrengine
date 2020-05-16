@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
@@ -9,22 +8,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import UserProfile from './UserIcon'
 import UserSettings from './userSettings'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    modal: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-    paper: {
-      backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3)
-    }
-  })
-)
+import './style.scss'
 
 interface Props {
   open: boolean
@@ -35,7 +19,6 @@ interface Props {
 const TabPanel = (props: any) => <Fragment>{props.value === props.index && props.children}</Fragment>
 
 const ProfileModal = (props: Props) => {
-  const classes = useStyles()
   const [tabIndex, setTabIndex] = React.useState(0)
 
   const handleChange = (event: any, newValue: number) => {
@@ -62,7 +45,7 @@ const ProfileModal = (props: Props) => {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        className={classes.modal}
+        className="modal"
         open={props.open}
         onClose={props.handleClose}
         closeAfterTransition
@@ -72,7 +55,7 @@ const ProfileModal = (props: Props) => {
         }}
       >
         <Fade in={props.open}>
-          <div className={classes.paper}>
+          <div className="paper">
             <Tabs
               value={tabIndex}
               onChange={handleChange}

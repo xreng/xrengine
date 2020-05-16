@@ -16,7 +16,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import NextLink from 'next/link'
 import getConfig from 'next/config'
-import './auth.scss'
+import './style.scss'
 import { User } from '../../../interfaces/User'
 
 const config = getConfig().publicRuntimeConfig.staticPages
