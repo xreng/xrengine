@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Alerts from '../Common/Alerts'
-import XDialog from '../Dialog/Dialog'
+import UIDialog from '../Dialog/Dialog'
 
 type Props = {
   children: any
@@ -8,7 +8,7 @@ type Props = {
 
 const EmptyLayout = ({ children }: Props) => (
   <React.Fragment>
-    <XDialog />
+    <UIDialog />
     <Alerts />
     {children}
   </React.Fragment>

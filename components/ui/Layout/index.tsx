@@ -6,7 +6,7 @@ import Head from 'next/head'
 import '../../../scss/style.scss' // Global style
 import './style.scss'
 import Alerts from '../Common/Alerts'
-import XDialog from '../Dialog/Dialog'
+import UIDialog from '../Dialog/Dialog'
 
 const { publicRuntimeConfig } = getConfig()
 const siteTitle: string = publicRuntimeConfig.siteTitle
@@ -30,7 +30,7 @@ const Layout = (props: Props) => {
         <NavMenu />
       </header>
       <React.Fragment>
-        <XDialog />
+        <UIDialog />
         <Alerts />
         {children}
       </React.Fragment>

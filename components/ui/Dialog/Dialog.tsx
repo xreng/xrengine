@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   closeDialog: bindActionCreators(closeDialog, dispatch)
 })
 
-const XDialog = (props: Props) => {
+const UIDialog = (props: Props) => {
   const { dialog, closeDialog } = props
   const isOpened = dialog.get('isOpened')
   const content = dialog.get('content')
@@ -63,6 +63,6 @@ const XDialog = (props: Props) => {
   )
 }
 
-const DialogWrapper = (props: any) => <XDialog {...props } />
+const DialogWrapper = (props: any) => <UIDialog {...props } />
 
 export default connect(mapStateToProps, mapDispatchToProps)(DialogWrapper)
