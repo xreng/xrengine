@@ -21,7 +21,7 @@ const TabPanel = (props: any) => {
   )
 }
 
-const SignIn = (/* props: any */) => {
+const SignIn = () => {
   let enableSmsMagicLink = true
   let enableEmailMagicLink = true
   let enableUserPassword = false
@@ -75,8 +75,9 @@ const SignIn = (/* props: any */) => {
   } else {
     let index = 0
     const emailTab = (enableEmailMagicLink || enableSmsMagicLink) && <Tab icon={<EmailIcon/>} label="Email | SMS"/>
-    const emailTabPanel = (enableEmailMagicLink || enableSmsMagicLink) && <TabPanel value={tabIndex} index={index}><MagicLinkEmail /></TabPanel>
-    (enableEmailMagicLink || enableSmsMagicLink) && ++index
+    const emailTabPanel = (enableEmailMagicLink || enableSmsMagicLink) &&
+      <TabPanel value={tabIndex} index={index}><MagicLinkEmail /></TabPanel>
+    ;(enableEmailMagicLink || enableSmsMagicLink) && ++index
 
     const userTab = enableUserPassword && <Tab icon={<UserIcon/>} label="UserName + Password"/>
     const userTabPanel = enableUserPassword && <TabPanel value={tabIndex} index={index}><PasswordLogin/></TabPanel>

@@ -12,10 +12,7 @@ import Container from '@material-ui/core/Container'
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 import { selectAuthState } from '../../../redux/auth/selector'
-import {
-  loginUserByPassword,
-  addConnectionByPassword
-} from '../../../redux/auth/service'
+import { loginUserByPassword, addConnectionByPassword } from '../../../redux/auth/service'
 import { showDialog, closeDialog } from '../../../redux/dialog/service'
 import SignUp from '../Auth/Register'
 import ForgotPassword from '../Auth/ForgotPassword'
