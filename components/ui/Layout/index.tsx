@@ -1,9 +1,7 @@
 import { Fragment } from 'react'
 import getConfig from 'next/config'
 import NavMenu from '../NavMenu'
-import Footer from '../Footer'
 import Head from 'next/head'
-import '../../../scss/style.scss' // Global style
 import './style.scss'
 import Alerts from '../Common/Alerts'
 import UIDialog from '../Dialog/Dialog'
@@ -34,7 +32,6 @@ const Layout = (props: Props) => {
         <Alerts />
         {children}
       </Fragment>
-      <Footer />
     </section>
   )
 }
