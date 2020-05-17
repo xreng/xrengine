@@ -117,7 +117,7 @@ export class Magiclink implements ServiceMethods<Data> {
 
   async create (data: any, params?: Params): Promise<Data> {
     console.log('----------------')
-
+    console.log(data)
     const authService = this.app.service('authentication')
     const identityProviderService: Service = this.app.service(
       'identity-provider'
@@ -125,14 +125,14 @@ export class Magiclink implements ServiceMethods<Data> {
 
     // check magiclink type
     let token = ''
-    if (data.type === 'email') token = data.email
-    else if (data.type === 'sms') token = data.mobile
+    if (data.identityProviderType === 'email') token = data.email
+    else if (data.identityProviderType === 'sms') token = data.mobile
 
     let identityProvider
     const identityProviders = ((await identityProviderService.find({
       query: {
         token: token,
-        type: data.type
+        identityProviderType: data.identityProviderType
       }
     })) as any).data
 
@@ -140,7 +140,7 @@ export class Magiclink implements ServiceMethods<Data> {
       identityProvider = await identityProviderService.create(
         {
           token: token,
-          type: data.type,
+          identityProviderType: data.identityProviderType,
           userId: data.userId
         },
         params
@@ -155,13 +155,13 @@ export class Magiclink implements ServiceMethods<Data> {
         { subject: identityProvider.id.toString() }
       )
 
-      if (data.type === 'email') {
+      if (data.identityProviderType === 'email') {
         await this.sendEmail(
           data.email,
           accessToken,
           data.userId ? 'connection' : 'login'
         )
-      } else if (data.type === 'sms') {
+      } else if (data.identityProviderType === 'sms') {
         await this.sendSms(
           data.mobile,
           accessToken,

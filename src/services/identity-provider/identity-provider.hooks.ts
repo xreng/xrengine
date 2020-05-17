@@ -12,7 +12,7 @@ const { protect } = hooks
 
 const isPasswordAccountType = () => {
   return (context: HookContext): boolean => {
-    if (context.data.type === 'password') {
+    if (context.data.identityProviderType === 'password') {
       return true
     }
     return false

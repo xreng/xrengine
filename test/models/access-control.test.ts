@@ -23,10 +23,10 @@ describe('CRUD operation on \'AccessControl\' model', () => {
     })
     userRole = userRoleInstance.role
 
-    const type = await resourceTypeModel.create({
+    const typeModel = await resourceTypeModel.create({
       type: 'test'
     })
-    resourceType = type.type
+    resourceType = typeModel.type
   })
 
   it('Create', done => {

@@ -27,7 +27,6 @@ describe('CRUD operation on \'IdentityProvider\' model', () => {
 
   it('Create', done => {
     model.create({
-      type: type,
       userId: userId,
       password: password,
       token: token
@@ -72,7 +71,7 @@ describe('CRUD operation on \'IdentityProvider\' model', () => {
 
   it('Update', done => {
     model.update(
-      { type: newType },
+      { identityProviderType: newType },
       { where: { userId: userId } }
     ).then(res => {
       done()
@@ -82,7 +81,7 @@ describe('CRUD operation on \'IdentityProvider\' model', () => {
   it('Find User by IdentityProvider', done => {
     model.findOne({
       where: {
-        type: newType
+        identityProviderType: newType
       }
     }).then(res => {
       userModel.findOne({

@@ -26,7 +26,7 @@ export class RelationRelation extends Service {
       const userRelations = await UserRelationshipModel.findAll({
         where: {
           userId,
-          type: userRelationType.type
+          userRelationType: userRelationType.type
         },
         attributes: ['relatedUserId'],
         raw: false

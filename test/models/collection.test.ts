@@ -6,10 +6,10 @@ describe.skip('CRUD operation on \'Collection\' model', () => {
   let collectionType: any
 
   before(async () => {
-    const collection = await collectionTypeModel.create({
+    const collectionModel = await collectionTypeModel.create({
       type: 'test_collection'
     })
-    collectionType = collection.type
+    collectionType = collectionModel.type
   })
 
   it('Create', done => {

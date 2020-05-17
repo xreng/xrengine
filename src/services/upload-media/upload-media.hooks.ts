@@ -37,7 +37,7 @@ const createOwnedFile = (options = {}) => {
     if (context.params.parentResourceId) {
       (resourceData as any).parentResourceId = context.params.parentResourceId
     }
-    (resourceData as any).type = getBasicMimetype(resourceData.content_type)
+    (resourceData as any).staticResourceType = getBasicMimetype(resourceData.content_type)
     context.result = await context.app.service('owned-file').create(resourceData)
     // }
 
