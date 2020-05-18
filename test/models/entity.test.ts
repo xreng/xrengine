@@ -6,10 +6,10 @@ describe('CRUD operation on \'Entity\' model', () => {
   let entityType: any
 
   before(async () => {
-    const entityTypeModel = await entityTypeModel.create({
+    const entityTypeModelInstance = await entityTypeModel.create({
       type: 'test_entity_type'
     })
-    entityType = entityTypeModel.type
+    entityType = entityTypeModelInstance.type
   })
 
   it('Create', done => {
