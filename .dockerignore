@@ -1,0 +1,10 @@
+
+.git
+*Dockerfile*
+*docker-compose*
+node_modules
+lib/
+
+kubernetes/**
+.vscode
+config/prod.json
